@@ -43,6 +43,16 @@ module.exports = async options =>
             },
           ],
         },
+        {
+          test: /\.(js|jsx)$/, // Match .js and .jsx files
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'], // Use both env and react presets
+            },
+          },
+        },
       ],
     },
     devServer: {

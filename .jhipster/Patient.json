@@ -1,0 +1,54 @@
+{
+  "annotations": {
+    "changelogDate": "20240911124005"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "yearOfDiagnosis",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Patient",
+  "relationships": [
+    {
+      "otherEntityName": "fingerTaps",
+      "otherEntityRelationshipName": "patient",
+      "relationshipName": "fingerTaps",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "scores",
+      "otherEntityRelationshipName": "patient",
+      "relationshipName": "scores",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "symptoms",
+      "otherEntityRelationshipName": "patient",
+      "relationshipName": "symptoms",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -13,6 +13,7 @@ import EntitiesRoutes from 'app/entities/routes';
 import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 import PageNotFound from 'app/shared/error/page-not-found';
+import Patient from 'app/entities/patient/patient';
 import { AUTHORITIES } from 'app/config/constants';
 
 const loading = <div>loading ...</div>;
@@ -30,7 +31,8 @@ const AppRoutes = () => {
   return (
     <div className="view-routes">
       <ErrorBoundaryRoutes>
-        <Route index element={<Home />} />
+        <Route index element={<Patient />} />
+        {/*<Route index element={<Home />} />*/}
         <Route path="login" element={<Login />} />
         <Route path="logout" element={<Logout />} />
         <Route path="account">

@@ -41,6 +41,13 @@ public class CacheConfiguration {
             createCache(cm, de.expandai.repository.UserRepository.USERS_BY_LOGIN_CACHE);
             createCache(cm, de.expandai.repository.UserRepository.USERS_BY_EMAIL_CACHE);
             createCache(cm, de.expandai.domain.Authority.class.getName());
+            createCache(cm, de.expandai.domain.Patient.class.getName());
+            createCache(cm, de.expandai.domain.Patient.class.getName() + ".fingerTaps");
+            createCache(cm, de.expandai.domain.Patient.class.getName() + ".scores");
+            createCache(cm, de.expandai.domain.Patient.class.getName() + ".symptoms");
+            createCache(cm, de.expandai.domain.FingerTaps.class.getName());
+            createCache(cm, de.expandai.domain.Scores.class.getName());
+            createCache(cm, de.expandai.domain.Symptoms.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

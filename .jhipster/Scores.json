@@ -1,0 +1,32 @@
+{
+  "annotations": {
+    "changelogDate": "20240911124007"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "time",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "questionnaire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Scores",
+  "relationships": [
+    {
+      "otherEntityName": "patient",
+      "otherEntityRelationshipName": "scores",
+      "relationshipName": "patient",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,79 @@
+entity Patient {
+    id String
+    gender String
+    birthDate Instant
+    createdAt Instant
+    yearOfDiagnosis Long
+}
+
+entity FingerTaps {
+    patientId String
+    date Instant
+    side SIDE
+    thumbX String
+    thumbY String
+    digitX String
+    digitY String
+}
+
+entity Scores {
+    time Instant
+    questionnaire String
+    score Long
+}
+
+entity Symptoms {
+    time Instant
+    status STATUS
+}
+
+enum STATUS {
+    RED,
+    YELLOW,
+    GREEN
+}
+
+enum SIDE {
+    LEFT,
+    RIGHT
+}
+
+
+//// defining multiple OneToMany relationships with comments
+//relationship OneToMany {
+//    Patient to FingerTaps
+//    Patient to Scores
+//    Patient to Symptoms
+//}
+
+// Define relationships between entities
+relationship OneToMany {
+    Patient { fingerTaps } to FingerTaps { patient }
+    Patient { scores } to Scores { patient }
+    Patient { symptoms } to Symptoms { patient }
+}
+
+
+//relationship ManyToOne {
+//	Employee{manager} to Employee
+//}
+//
+//// defining multiple oneToOne relationships
+//relationship OneToOne {
+//	JobHistory{job} to Job
+//	JobHistory{department} to Department
+//	JobHistory{employee} to Employee
+//}
+
+// Set pagination options
+
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+//except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

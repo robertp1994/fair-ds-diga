@@ -1,0 +1,49 @@
+{
+  "annotations": {
+    "changelogDate": "20240911124006"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "patientId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "side",
+      "fieldType": "SIDE",
+      "fieldValues": "LEFT,RIGHT"
+    },
+    {
+      "fieldName": "thumbX",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "thumbY",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "digitX",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "digitY",
+      "fieldType": "String"
+    }
+  ],
+  "name": "FingerTaps",
+  "relationships": [
+    {
+      "otherEntityName": "patient",
+      "otherEntityRelationshipName": "fingerTaps",
+      "relationshipName": "patient",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

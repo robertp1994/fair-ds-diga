@@ -1,0 +1,29 @@
+{
+  "annotations": {
+    "changelogDate": "20240911124008"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "time",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "STATUS",
+      "fieldValues": "RED,YELLOW,GREEN"
+    }
+  ],
+  "name": "Symptoms",
+  "relationships": [
+    {
+      "otherEntityName": "patient",
+      "otherEntityRelationshipName": "symptoms",
+      "relationshipName": "patient",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

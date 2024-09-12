@@ -8,7 +8,7 @@ const Footer = () => (
   <div className="footer page-content">
     <Row>
       <Col md="12">
-        <p>To jest stopka</p>
+        <p>ExpandAI FAIR Data Spaces demonstrator</p>
       </Col>
     </Row>
   </div>
