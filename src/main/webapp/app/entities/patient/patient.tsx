@@ -64,17 +64,36 @@ export const Patient = () => {
     }
   };
 
+  // Randomly generate traffic light status
+  const getRandomTrafficLight = () => {
+    const statuses = ['red', 'orange', 'green'];
+    return statuses[Math.floor(Math.random() * statuses.length)];
+  };
+
+  const getTrafficLightColor = status => {
+    switch (status) {
+      case 'red':
+        return '🔴'; // Use an icon or a color circle
+      case 'orange':
+        return '🟠';
+      case 'green':
+        return '🟢';
+      default:
+        return '⚪';
+    }
+  };
+
   return (
     <div>
       <h2 id="patient-heading" data-cy="PatientHeading">
-        Patient
+        Patients
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
-            <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
-          </Button>
+          {/*<Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>*/}
+          {/*  <FontAwesomeIcon icon="sync" spin={loading}/> Refresh list*/}
+          {/*</Button>*/}
           <Link to="/patient/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
-            &nbsp; Dodaj Patient
+            &nbsp; Create a new Patient
           </Link>
         </div>
       </h2>
@@ -98,6 +117,11 @@ export const Patient = () => {
                 <th className="hand" onClick={sort('yearOfDiagnosis')}>
                   Year Of Diagnosis <FontAwesomeIcon icon={getSortIconByFieldName('yearOfDiagnosis')} />
                 </th>
+                <th>Status</th>
+                <th>FingerTaps</th>
+                {/* New column for FingerTaps */}
+                <th>Scores</th>
+                {/* New column for FingerTaps */}
                 <th />
               </tr>
             </thead>
@@ -110,16 +134,30 @@ export const Patient = () => {
                     </Button>
                   </td>
                   <td>{patient.gender}</td>
-                  <td>{patient.birthDate ? <TextFormat type="date" value={patient.birthDate} format={APP_DATE_FORMAT} /> : null}</td>
-                  <td>{patient.createdAt ? <TextFormat type="date" value={patient.createdAt} format={APP_DATE_FORMAT} /> : null}</td>
+                  <td>{patient.birthDate ? <TextFormat type="date" value={patient.birthDate} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
+                  <td>{patient.createdAt ? <TextFormat type="date" value={patient.createdAt} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                   <td>{patient.yearOfDiagnosis}</td>
+                  <td>{getTrafficLightColor(getRandomTrafficLight())}</td>
+                  {/* Random status */}
+                  <td>
+                    <Button tag={Link} to={`/finger-taps/patients/${patient.id}`} color="info" size="sm">
+                      View FingerTaps
+                    </Button>{' '}
+                    {/* Add a link to the FingerTaps page */}
+                  </td>
+                  <td>
+                    <Button tag={Link} to={`/finger-taps/patients/${patient.id}`} color="info" size="sm">
+                      View Scores
+                    </Button>{' '}
+                    {/* Add a link to the FingerTaps page */}
+                  </td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/patient/${patient.id}`} color="info" size="sm" data-cy="entityDetailsButton">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">Widok</span>
+                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
                       </Button>
                       <Button tag={Link} to={`/patient/${patient.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edytuj</span>
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
                       </Button>
                       <Button
                         onClick={() => (window.location.href = `/patient/${patient.id}/delete`)}
@@ -127,7 +165,7 @@ export const Patient = () => {
                         size="sm"
                         data-cy="entityDeleteButton"
                       >
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Usuń</span>
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
                       </Button>
                     </div>
                   </td>

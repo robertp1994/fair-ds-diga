@@ -32,8 +32,8 @@ export const PasswordResetFinishPage = () => {
       <ValidatedForm onSubmit={handleValidSubmit}>
         <ValidatedField
           name="newPassword"
-          label="Nowe hasło"
-          placeholder="Nowe hasło"
+          label="New password"
+          placeholder="New Password"
           type="password"
           validate={{
             required: { value: true, message: 'Twoje hasło jest wymagane.' },

@@ -39,48 +39,48 @@ export const SettingsPage = () => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="settings-title">
-            Ustawienia dla użytkownika [<strong>{account.login}</strong>]
+            User settings [<strong>{account.login}</strong>]
           </h2>
           <ValidatedForm id="settings-form" onSubmit={handleValidSubmit} defaultValues={account}>
             <ValidatedField
               name="firstName"
-              label="Imię"
+              label="Name"
               id="firstName"
-              placeholder="Twoje imię"
+              placeholder="Your name"
               validate={{
-                required: { value: true, message: 'Twoje imię jest wymagane.' },
-                minLength: { value: 1, message: 'Twoje imię musi mieć przynajmniej 1 literę' },
-                maxLength: { value: 50, message: 'Twoje imię nie może być dłuższe niż 50 liter' },
+                required: { value: true, message: 'Your name is required.' },
+                minLength: { value: 1, message: 'Your name must have at least 1 letter' },
+                maxLength: { value: 50, message: 'Your name must not be longer than 50 letters' },
               }}
               data-cy="firstname"
             />
             <ValidatedField
               name="lastName"
-              label="Nazwisko"
+              label="Last name"
               id="lastName"
-              placeholder="Twoje nazwisko"
+              placeholder="Your last name"
               validate={{
-                required: { value: true, message: 'Twoje nazwisko jest wymagane.' },
-                minLength: { value: 1, message: 'Twoje nazwisko musi mieć przynajmniej 1 literę' },
-                maxLength: { value: 50, message: 'Twoje nazwisko nie może być dłuższe niż 50 liter' },
+                required: { value: true, message: 'Your name is required.' },
+                minLength: { value: 1, message: 'Your name must have at least 1 letter' },
+                maxLength: { value: 50, message: 'Your name must not be longer than 50 letters' },
               }}
               data-cy="lastname"
             />
             <ValidatedField
               name="email"
               label="Email"
-              placeholder="Twój email"
+              placeholder="Your email"
               type="email"
               validate={{
-                required: { value: true, message: 'Twój email jest wymagany.' },
-                minLength: { value: 5, message: 'Twój email musi mieć przynajmniej 5 znaków' },
-                maxLength: { value: 254, message: 'Twój email nie może być dłuższy niż 50 znaków' },
-                validate: v => isEmail(v) || 'Twój email jest błędny.',
+                required: { value: true, message: 'Your email is required.' },
+                minLength: { value: 5, message: "Your email must have at least 5 characters'" },
+                maxLength: { value: 254, message: 'Your email must not be longer than 50 characters' },
+                validate: v => isEmail(v) || 'Your email is incorrect.',
               }}
               data-cy="email"
             />
             <Button color="primary" type="submit" data-cy="submit">
-              Zapisz
+              Save
             </Button>
           </ValidatedForm>
         </Col>

@@ -42,17 +42,17 @@ export const SymptomsDeleteDialog = () => {
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose} data-cy="symptomsDeleteDialogHeading">
-        Potwierdź usunięcie
+        Confirm delete operation
       </ModalHeader>
-      <ModalBody id="fitApp.symptoms.delete.question">Czy na pewno chcesz usunąć Symptoms {symptomsEntity.id}?</ModalBody>
+      <ModalBody id="fitApp.symptoms.delete.question">Are you sure you want to delete Symptoms {symptomsEntity.id}?</ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
-          &nbsp; Anuluj
+          &nbsp; Cancel
         </Button>
         <Button id="jhi-confirm-delete-symptoms" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
-          &nbsp; Usuń
+          &nbsp; Delete
         </Button>
       </ModalFooter>
     </Modal>

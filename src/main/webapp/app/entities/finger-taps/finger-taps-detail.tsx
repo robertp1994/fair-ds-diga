@@ -60,11 +60,11 @@ export const FingerTapsDetail = () => {
           <dd>{fingerTapsEntity.patient ? fingerTapsEntity.patient.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/finger-taps" replace color="info" data-cy="entityDetailsBackButton">
-          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Wstecz</span>
+          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/finger-taps/${fingerTapsEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edytuj</span>
+          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
         </Button>
       </Col>
     </Row>

@@ -74,7 +74,7 @@ export const Symptoms = () => {
           </Button>
           <Link to="/symptoms/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
-            &nbsp; Dodaj Symptoms
+            &nbsp; Create a new Symptoms
           </Link>
         </div>
       </h2>
@@ -112,10 +112,10 @@ export const Symptoms = () => {
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/symptoms/${symptoms.id}`} color="info" size="sm" data-cy="entityDetailsButton">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">Widok</span>
+                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
                       </Button>
                       <Button tag={Link} to={`/symptoms/${symptoms.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edytuj</span>
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
                       </Button>
                       <Button
                         onClick={() => (window.location.href = `/symptoms/${symptoms.id}/delete`)}
@@ -123,7 +123,7 @@ export const Symptoms = () => {
                         size="sm"
                         data-cy="entityDeleteButton"
                       >
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Usuń</span>
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
                       </Button>
                     </div>
                   </td>

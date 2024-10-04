@@ -97,13 +97,13 @@ export const UserManagement = () => {
   return (
     <div>
       <h2 id="user-management-page-heading" data-cy="userManagementPageHeading">
-        Użytkownicy
+        Users
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
-            <FontAwesomeIcon icon="sync" spin={loading} /> Odśwież listę
+            <FontAwesomeIcon icon="sync" spin={loading} /> refresh
           </Button>
           <Link to="new" className="btn btn-primary jh-create-entity">
-            <FontAwesomeIcon icon="plus" /> Stwórz nowego użytkownika
+            <FontAwesomeIcon icon="plus" /> Add user
           </Link>
         </div>
       </h2>
@@ -122,13 +122,13 @@ export const UserManagement = () => {
             <th />
             <th>Profile</th>
             <th className="hand" onClick={sort('createdDate')}>
-              Data utworzenia <FontAwesomeIcon icon={getSortIconByFieldName('createdDate')} />
+              Created at <FontAwesomeIcon icon={getSortIconByFieldName('createdDate')} />
             </th>
             <th className="hand" onClick={sort('lastModifiedBy')}>
-              Zmodyfikowany przez <FontAwesomeIcon icon={getSortIconByFieldName('lastModifiedBy')} />
+              Modified by <FontAwesomeIcon icon={getSortIconByFieldName('lastModifiedBy')} />
             </th>
             <th id="modified-date-sort" className="hand" onClick={sort('lastModifiedDate')}>
-              Data modyfikacji <FontAwesomeIcon icon={getSortIconByFieldName('lastModifiedDate')} />
+              Modified at <FontAwesomeIcon icon={getSortIconByFieldName('lastModifiedDate')} />
             </th>
             <th />
           </tr>
@@ -146,11 +146,11 @@ export const UserManagement = () => {
               <td>
                 {user.activated ? (
                   <Button color="success" onClick={toggleActive(user)}>
-                    Aktywny
+                    Active
                   </Button>
                 ) : (
                   <Button color="danger" onClick={toggleActive(user)}>
-                    Nieaktywny
+                    Disabled
                   </Button>
                 )}
               </td>

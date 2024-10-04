@@ -87,9 +87,8 @@ public class FingerTapsServiceImpl implements FingerTapsService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<FingerTaps> findByPatient(String id) {
-        log.debug("Request to get FingerTaps by patient : {}", id);
-        return fingerTapsRepository.findAllByPatientId(id);
+    public List<FingerTaps> findByPatientId(String patientId) {
+        return fingerTapsRepository.findAllByPatientId(patientId);
     }
 
     @Override

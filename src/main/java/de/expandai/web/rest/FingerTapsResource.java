@@ -139,6 +139,12 @@ public class FingerTapsResource {
         return fingerTapsService.findAll();
     }
 
+    // Custom API to get all FingerTaps by patientId
+    @GetMapping("/patients/{patientId}")
+    public List<FingerTaps> getFingerTapsByPatient(@PathVariable String patientId) {
+        return fingerTapsService.findByPatientId(patientId);
+    }
+
     /**
      * {@code GET  /finger-taps/:id} : get the "id" fingerTaps.
      *
@@ -150,12 +156,6 @@ public class FingerTapsResource {
         log.debug("REST request to get FingerTaps : {}", id);
         Optional<FingerTaps> fingerTaps = fingerTapsService.findOne(id);
         return ResponseUtil.wrapOrNotFound(fingerTaps);
-    }
-
-    @GetMapping("/patient/{patientId}")
-    public ResponseEntity<List<FingerTaps>> getFingerTapsByPatient(@PathVariable String patientId) {
-        List<FingerTaps> fingertapsList = fingerTapsService.findByPatient(patientId);
-        return ResponseEntity.ok(fingertapsList);
     }
 
     /**

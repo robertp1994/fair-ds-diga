@@ -7,7 +7,7 @@
     "cacheProvider": "ehcache",
     "clientFramework": "react",
     "clientTestFrameworks": [],
-    "clientTheme": "slate",
+    "clientTheme": "qauartz",
     "clientThemeVariant": "primary",
     "creationTimestamp": 1724752348929,
     "databaseType": "sql",

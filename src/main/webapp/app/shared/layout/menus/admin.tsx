@@ -7,7 +7,7 @@ import { NavDropdown } from './menu-components';
 const adminMenuItems = () => (
   <>
     <MenuItem icon="users" to="/admin/user-management">
-      Użytkownicy
+      Users
     </MenuItem>
     {/* jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here */}
   </>
@@ -20,7 +20,7 @@ const openAPIItem = () => (
 );
 
 export const AdminMenu = ({ showOpenAPI }) => (
-  <NavDropdown icon="users-cog" name="Administracja" id="admin-menu" data-cy="adminMenu">
+  <NavDropdown icon="users-cog" name="Administration" id="admin-menu" data-cy="adminMenu">
     {adminMenuItems()}
     {showOpenAPI && openAPIItem()}
   </NavDropdown>

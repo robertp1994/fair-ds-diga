@@ -38,7 +38,7 @@ export const RegisterPage = () => {
       <Row className="justify-content-center">
         <Col md="8">
           <h1 id="register-title" data-cy="registerTitle">
-            Rejestracja
+            Sign up
           </h1>
         </Col>
       </Row>
@@ -47,23 +47,23 @@ export const RegisterPage = () => {
           <ValidatedForm id="register-form" onSubmit={handleValidSubmit}>
             <ValidatedField
               name="username"
-              label="Nazwa użytkownika"
-              placeholder="Twój login"
+              label="Username"
+              placeholder="Your login"
               validate={{
-                required: { value: true, message: 'Twój login jest wymagany.' },
+                required: { value: true, message: 'Your login is required.' },
                 pattern: {
                   value: /^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$/,
-                  message: 'Niewłaściwa nazwa użytkownika.',
+                  message: 'Incorrect username.',
                 },
-                minLength: { value: 1, message: 'Twój login musi mieć długość co najmniej 1 znaku' },
-                maxLength: { value: 50, message: 'Twój login nie może być dłuższy niż 50 znaków' },
+                minLength: { value: 1, message: 'Your login must be at least 1 character long' },
+                maxLength: { value: 50, message: 'Your login must not be longer than 50 characters' },
               }}
               data-cy="username"
             />
             <ValidatedField
               name="email"
               label="Email"
-              placeholder="Twój email"
+              placeholder="Your email"
               type="email"
               validate={{
                 required: { value: true, message: 'Twój email jest wymagany.' },
@@ -75,45 +75,44 @@ export const RegisterPage = () => {
             />
             <ValidatedField
               name="firstPassword"
-              label="Nowe hasło"
-              placeholder="Nowe hasło"
+              label="New password"
+              placeholder="New password"
               type="password"
               onChange={updatePassword}
               validate={{
-                required: { value: true, message: 'Twoje hasło jest wymagane.' },
-                minLength: { value: 4, message: 'Twoje hasło powinno mieć minimum 4 znaki' },
-                maxLength: { value: 50, message: 'Twoje hasło nie może być dłuższe niż 50 znaków' },
+                required: { value: true, message: 'Your password is required.' },
+                minLength: { value: 4, message: 'Your password should have a minimum of 4 characters' },
+                maxLength: { value: 50, message: 'Your password must not be longer than 50 characters' },
               }}
               data-cy="firstPassword"
             />
             <PasswordStrengthBar password={password} />
             <ValidatedField
               name="secondPassword"
-              label="Potwierdź nowe hasło"
-              placeholder="Potwierdź nowe hasło"
+              label="Confirm new password"
+              placeholder="Confirm new password"
               type="password"
               validate={{
-                required: { value: true, message: 'Potwierdzenie hasła jest wymagane.' },
-                minLength: { value: 4, message: 'Potwierdzenie hasła powinno mieć minimum 4 znaki' },
-                maxLength: { value: 50, message: 'Potwierdzenie hasła nie powinno być dłuższe niż 50 znaków' },
-                validate: v => v === password || 'Hasło i potwierdzenie nie zgadzają się!',
+                required: { value: true, message: 'Confirmation of the password is required.' },
+                minLength: { value: 4, message: 'Password confirmation should have a minimum of 4 characters' },
+                maxLength: { value: 50, message: 'Password confirmation should not be longer than 50 characters' },
+                validate: v => v === password || 'Password and confirmation do not match!',
               }}
               data-cy="secondPassword"
             />
             <Button id="register-submit" color="primary" type="submit" data-cy="submit">
-              Zarejestruj
+              Sign up
             </Button>
           </ValidatedForm>
           <p>&nbsp;</p>
           <Alert color="warning">
-            <span>Jeśli chcesz się </span>
+            <span>If you want to </span>
             <Link to="/login" className="alert-link">
-              zalogować
+              log in
             </Link>
             <span>
-              , możesz spróbować któregoś z domyślnych kont:
-              <br />- Administrator (login=&quot;admin&quot; i hasło=&quot;admin&quot;) <br />- Użytkownik (login=&quot;user&quot; i
-              hasło=&quot;user&quot;).
+              , you can try one of default accounts:
+              <br />- Admin (login=&quot;admin&quot; pass=&quot;admin&quot;) <br />- User (login=&quot;user&quot; pass=&quot;user&quot;).
             </span>
           </Alert>
         </Col>

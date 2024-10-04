@@ -42,17 +42,17 @@ export const PatientDeleteDialog = () => {
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose} data-cy="patientDeleteDialogHeading">
-        Potwierdź usunięcie
+        Confirm delete operation
       </ModalHeader>
-      <ModalBody id="fitApp.patient.delete.question">Czy na pewno chcesz usunąć Patient {patientEntity.id}?</ModalBody>
+      <ModalBody id="fitApp.patient.delete.question">Are you sure you want to delete Patient {patientEntity.id}?</ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
-          &nbsp; Anuluj
+          &nbsp; Cancel
         </Button>
         <Button id="jhi-confirm-delete-patient" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
-          &nbsp; Usuń
+          &nbsp; Delete
         </Button>
       </ModalFooter>
     </Modal>

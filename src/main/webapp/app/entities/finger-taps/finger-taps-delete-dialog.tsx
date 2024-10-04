@@ -42,17 +42,17 @@ export const FingerTapsDeleteDialog = () => {
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose} data-cy="fingerTapsDeleteDialogHeading">
-        Potwierdź usunięcie
+        Confirm delete operation
       </ModalHeader>
-      <ModalBody id="fitApp.fingerTaps.delete.question">Czy na pewno chcesz usunąć Finger Taps {fingerTapsEntity.id}?</ModalBody>
+      <ModalBody id="fitApp.fingerTaps.delete.question">Are you sure you want to delete Finger Taps {fingerTapsEntity.id}?</ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
-          &nbsp; Anuluj
+          &nbsp; Cancel
         </Button>
         <Button id="jhi-confirm-delete-fingerTaps" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
-          &nbsp; Usuń
+          &nbsp; Delete
         </Button>
       </ModalFooter>
     </Modal>

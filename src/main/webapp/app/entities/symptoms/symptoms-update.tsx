@@ -86,7 +86,7 @@ export const SymptomsUpdate = () => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="fitApp.symptoms.home.createOrEditLabel" data-cy="SymptomsCreateUpdateHeading">
-            Dodaj lub edytuj: Symptoms
+            Create or edit a Symptoms
           </h2>
         </Col>
       </Row>
@@ -125,12 +125,12 @@ export const SymptomsUpdate = () => {
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/symptoms" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
-                <span className="d-none d-md-inline">Wstecz</span>
+                <span className="d-none d-md-inline">Back</span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
-                &nbsp; Zapisz
+                &nbsp; Save
               </Button>
             </ValidatedForm>
           )}

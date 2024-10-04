@@ -27,6 +27,12 @@ export const getEntities = createAsyncThunk(
   { serializeError: serializeAxiosError },
 );
 
+// Define the async function to fetch FingerTaps by patientId
+export const getFingerTapsByPatient = createAsyncThunk('fingerTaps/fetch_by_patient', async (patientId: string) => {
+  const response = await axios.get<IFingerTaps[]>(`${apiUrl}/patients/${patientId}`);
+  return response.data;
+});
+
 export const getEntity = createAsyncThunk(
   'fingerTaps/fetch_entity',
   async (id: string | number) => {

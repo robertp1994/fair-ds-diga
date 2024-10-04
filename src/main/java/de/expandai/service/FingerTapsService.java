@@ -49,7 +49,7 @@ public interface FingerTapsService {
     Optional<FingerTaps> findOne(Long id);
 
     @Transactional(readOnly = true)
-    List<FingerTaps> findByPatient(String id);
+    List<FingerTaps> findByPatientId(String patientId);
 
     /**
      * Delete the "id" fingerTaps.

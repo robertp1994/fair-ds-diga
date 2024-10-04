@@ -74,7 +74,7 @@ export const Scores = () => {
           </Button>
           <Link to="/scores/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
-            &nbsp; Dodaj Scores
+            &nbsp; Create a new Scores
           </Link>
         </div>
       </h2>
@@ -116,10 +116,10 @@ export const Scores = () => {
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/scores/${scores.id}`} color="info" size="sm" data-cy="entityDetailsButton">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">Widok</span>
+                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
                       </Button>
                       <Button tag={Link} to={`/scores/${scores.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edytuj</span>
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
                       </Button>
                       <Button
                         onClick={() => (window.location.href = `/scores/${scores.id}/delete`)}
@@ -127,7 +127,7 @@ export const Scores = () => {
                         size="sm"
                         data-cy="entityDeleteButton"
                       >
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Usuń</span>
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
                       </Button>
                     </div>
                   </td>

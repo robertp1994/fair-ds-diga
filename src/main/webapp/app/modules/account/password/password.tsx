@@ -44,28 +44,28 @@ export const PasswordPage = () => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="password-title">
-            Hasło dla [<strong>{account.login}</strong>]
+            Password for [<strong>{account.login}</strong>]
           </h2>
           <ValidatedForm id="password-form" onSubmit={handleValidSubmit}>
             <ValidatedField
               name="currentPassword"
-              label="Aktualne hasło"
-              placeholder="Aktualne hasło"
+              label="Current password"
+              placeholder="Current password"
               type="password"
               validate={{
-                required: { value: true, message: 'Twoje hasło jest wymagane.' },
+                required: { value: true, message: 'Your password is required.' },
               }}
               data-cy="currentPassword"
             />
             <ValidatedField
               name="newPassword"
               label="Nowe hasło"
-              placeholder="Nowe hasło"
+              placeholder="New password"
               type="password"
               validate={{
-                required: { value: true, message: 'Twoje hasło jest wymagane.' },
-                minLength: { value: 4, message: 'Twoje hasło powinno mieć minimum 4 znaki' },
-                maxLength: { value: 50, message: 'Twoje hasło nie może być dłuższe niż 50 znaków' },
+                required: { value: true, message: 'Your password is required.' },
+                minLength: { value: 4, message: 'Your password should have a minimum of 4 characters' },
+                maxLength: { value: 50, message: 'Your password must not be longer than 50 characters' },
               }}
               onChange={updatePassword}
               data-cy="newPassword"
@@ -73,19 +73,19 @@ export const PasswordPage = () => {
             <PasswordStrengthBar password={password} />
             <ValidatedField
               name="confirmPassword"
-              label="Potwierdź nowe hasło"
-              placeholder="Potwierdź nowe hasło"
+              label="Confirm new password"
+              placeholder="Confirm new password"
               type="password"
               validate={{
-                required: { value: true, message: 'Potwierdzenie hasła jest wymagane.' },
-                minLength: { value: 4, message: 'Potwierdzenie hasła powinno mieć minimum 4 znaki' },
-                maxLength: { value: 50, message: 'Potwierdzenie hasła nie powinno być dłuższe niż 50 znaków' },
-                validate: v => v === password || 'Hasło i potwierdzenie nie zgadzają się!',
+                required: { value: true, message: 'Confirmation of the password is required..' },
+                minLength: { value: 4, message: 'Password confirmation should have a minimum of 4 characters' },
+                maxLength: { value: 50, message: 'Password confirmation should not be longer than 50 characters' },
+                validate: v => v === password || 'Password and confirmation do not match!',
               }}
               data-cy="confirmPassword"
             />
             <Button color="success" type="submit" data-cy="submit">
-              Zapisz
+              Save
             </Button>
           </ValidatedForm>
         </Col>

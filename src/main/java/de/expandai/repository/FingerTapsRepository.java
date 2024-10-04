@@ -2,7 +2,6 @@ package de.expandai.repository;
 
 import de.expandai.domain.FingerTaps;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 

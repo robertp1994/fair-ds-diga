@@ -42,17 +42,17 @@ export const ScoresDeleteDialog = () => {
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose} data-cy="scoresDeleteDialogHeading">
-        Potwierdź usunięcie
+        Confirm delete operation
       </ModalHeader>
-      <ModalBody id="fitApp.scores.delete.question">Czy na pewno chcesz usunąć Scores {scoresEntity.id}?</ModalBody>
+      <ModalBody id="fitApp.scores.delete.question">Are you sure you want to delete Scores {scoresEntity.id}?</ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
-          &nbsp; Anuluj
+          &nbsp; Cancel
         </Button>
         <Button id="jhi-confirm-delete-scores" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
-          &nbsp; Usuń
+          &nbsp; Delete
         </Button>
       </ModalFooter>
     </Modal>

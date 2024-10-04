@@ -86,7 +86,7 @@ export const FingerTapsUpdate = () => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="fitApp.fingerTaps.home.createOrEditLabel" data-cy="FingerTapsCreateUpdateHeading">
-            Dodaj lub edytuj: Finger Taps
+            Create or edit a Finger Taps
           </h2>
         </Col>
       </Row>
@@ -130,12 +130,12 @@ export const FingerTapsUpdate = () => {
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/finger-taps" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
-                <span className="d-none d-md-inline">Wstecz</span>
+                <span className="d-none d-md-inline">Back</span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
-                &nbsp; Zapisz
+                &nbsp; Save
               </Button>
             </ValidatedForm>
           )}

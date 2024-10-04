@@ -32,22 +32,22 @@ const LoginModal = (props: ILoginModalProps) => {
     <Modal isOpen={props.showModal} toggle={handleClose} backdrop="static" id="login-page" autoFocus={false}>
       <Form onSubmit={handleLoginSubmit}>
         <ModalHeader id="login-title" data-cy="loginTitle" toggle={handleClose}>
-          Autoryzacja
+          Authorization
         </ModalHeader>
         <ModalBody>
           <Row>
             <Col md="12">
               {loginError ? (
                 <Alert color="danger" data-cy="loginError">
-                  <strong>Nieudane logowanie!</strong> Sprawdź swoje dane logowania i spróbuj ponownie.
+                  <strong>Failed login!</strong> Check your login details and try again.
                 </Alert>
               ) : null}
             </Col>
             <Col md="12">
               <ValidatedField
                 name="username"
-                label="Nazwa użytkownika"
-                placeholder="Twój login"
+                label="Username"
+                placeholder="Your username"
                 required
                 autoFocus
                 data-cy="username"
@@ -59,8 +59,8 @@ const LoginModal = (props: ILoginModalProps) => {
               <ValidatedField
                 name="password"
                 type="password"
-                label="Hasło"
-                placeholder="Twoje hasło"
+                label="Password"
+                placeholder="Your password"
                 required
                 data-cy="password"
                 validate={{ required: 'Password cannot be empty!' }}
@@ -68,25 +68,25 @@ const LoginModal = (props: ILoginModalProps) => {
                 error={errors.password as FieldError}
                 isTouched={touchedFields.password}
               />
-              <ValidatedField name="rememberMe" type="checkbox" check label="Zapamiętaj mnie" value={true} register={register} />
+              <ValidatedField name="rememberMe" type="checkbox" check label="Remember me" value={true} register={register} />
             </Col>
           </Row>
           <div className="mt-1">&nbsp;</div>
           <Alert color="warning">
             <Link to="/account/reset/request" data-cy="forgetYourPasswordSelector">
-              Zapomniałeś swojego hasła?
+              Did you forget your password?
             </Link>
           </Alert>
           <Alert color="warning">
-            <span>Nie masz jeszcze konta?</span> <Link to="/account/register">Zarejestruj się</Link>
+            <span>Don't have an account yet?</span> <Link to="/account/register">Sign up</Link>
           </Alert>
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={handleClose} tabIndex={1}>
-            Anuluj
+            Cancel
           </Button>{' '}
           <Button color="primary" type="submit" data-cy="submit">
-            Zaloguj
+            Log in
           </Button>
         </ModalFooter>
       </Form>
