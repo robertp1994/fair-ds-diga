@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@id": "myAsset",
+  "properties": {
+    "name": "REST endpoint",
+    "contenttype": "application/json"
+  },
+  "dataAddress": {
+    "type": "HttpData",
+    "name": "myAssetAddress",
+    "baseUrl": "https://path.of.rest/endpoint",
+    "proxyPath": "true",
+    "proxyMethod": "true",
+    "proxyBody": "true",
+    "proxyQueryParams": "true",
+    "authKey": "ApiKey",
+    "authCode": "{{APIKEY}}",
+    "method": "POST"
+  }
+}
