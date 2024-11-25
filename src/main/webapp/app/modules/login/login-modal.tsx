@@ -78,7 +78,7 @@ const LoginModal = (props: ILoginModalProps) => {
             </Link>
           </Alert>
           <Alert color="warning">
-            <span>Don't have an account yet?</span> <Link to="/account/register">Sign up</Link>
+            <span>You do not have an account yet?</span> <Link to="/account/register">Sign up</Link>
           </Alert>
         </ModalBody>
         <ModalFooter>

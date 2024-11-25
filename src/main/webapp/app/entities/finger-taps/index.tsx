@@ -11,7 +11,7 @@ import FingerTapsForPatient from 'app/entities/finger-taps/finger-taps-for-patie
 
 const FingerTapsRoutes = () => (
   <ErrorBoundaryRoutes>
-    {/*<Route index element={<FingerTaps />} />*/}
+    {/* <Route index element={<FingerTaps />} />*/}
     <Route index element={<FingerTapsForPatient />} />
     <Route path="new" element={<FingerTapsUpdate />} />
     <Route path=":id">

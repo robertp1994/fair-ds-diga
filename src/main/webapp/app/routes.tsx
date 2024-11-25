@@ -32,7 +32,7 @@ const AppRoutes = () => {
     <div className="view-routes">
       <ErrorBoundaryRoutes>
         <Route index element={<Patient />} />
-        {/*<Route index element={<Home />} />*/}
+        {/* <Route index element={<Home />} />*/}
         <Route path="login" element={<Login />} />
         <Route path="logout" element={<Logout />} />
         <Route path="account">

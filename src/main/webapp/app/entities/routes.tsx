@@ -16,7 +16,7 @@ export default () => {
       <ErrorBoundaryRoutes>
         {/* prettier-ignore */}
         <Route path="patient/*" element={<Patient />} />
-        {/*<Route path="finger-taps/*" element={<FingerTaps />} />*/}
+        {/* <Route path="finger-taps/*" element={<FingerTaps />} />*/}
         <Route path="scores/*" element={<Scores />} />
         <Route path="symptoms/*" element={<Symptoms />} />
 

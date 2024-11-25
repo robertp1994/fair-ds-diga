@@ -88,9 +88,9 @@ export const Patient = () => {
       <h2 id="patient-heading" data-cy="PatientHeading">
         Patients
         <div className="d-flex justify-content-end">
-          {/*<Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>*/}
+          {/* <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>*/}
           {/*  <FontAwesomeIcon icon="sync" spin={loading}/> Refresh list*/}
-          {/*</Button>*/}
+          {/* </Button>*/}
           <Link to="/patient/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp; Create a new Patient
