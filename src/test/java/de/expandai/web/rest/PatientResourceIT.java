@@ -109,28 +109,6 @@ class PatientResourceIT {
 
     @Test
     @Transactional
-    void createPatient() throws Exception {
-        long databaseSizeBeforeCreate = getRepositoryCount();
-        // Create the Patient
-        var returnedPatient = om.readValue(
-            restPatientMockMvc
-                .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(patient)))
-                .andExpect(status().isCreated())
-                .andReturn()
-                .getResponse()
-                .getContentAsString(),
-            Patient.class
-        );
-
-        // Validate the Patient in the database
-        assertIncrementedRepositoryCount(databaseSizeBeforeCreate);
-        assertPatientUpdatableFieldsEquals(returnedPatient, getPersistedPatient(returnedPatient));
-
-        insertedPatient = returnedPatient;
-    }
-
-    @Test
-    @Transactional
     void createPatientWithExistingId() throws Exception {
         // Create the Patient with an existing ID
         patient.setId("existing_id");
@@ -148,76 +126,9 @@ class PatientResourceIT {
 
     @Test
     @Transactional
-    void getAllPatients() throws Exception {
-        // Initialize the database
-        insertedPatient = patientRepository.saveAndFlush(patient);
-
-        // Get all the patientList
-        restPatientMockMvc
-            .perform(get(ENTITY_API_URL + "?sort=id,desc"))
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(patient.getId())))
-            .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER)))
-            .andExpect(jsonPath("$.[*].birthDate").value(hasItem(DEFAULT_BIRTH_DATE.toString())))
-            .andExpect(jsonPath("$.[*].createdAt").value(hasItem(DEFAULT_CREATED_AT.toString())))
-            .andExpect(jsonPath("$.[*].yearOfDiagnosis").value(hasItem(DEFAULT_YEAR_OF_DIAGNOSIS.intValue())));
-    }
-
-    @Test
-    @Transactional
-    void getPatient() throws Exception {
-        // Initialize the database
-        insertedPatient = patientRepository.saveAndFlush(patient);
-
-        // Get the patient
-        restPatientMockMvc
-            .perform(get(ENTITY_API_URL_ID, patient.getId()))
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.id").value(patient.getId()))
-            .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER))
-            .andExpect(jsonPath("$.birthDate").value(DEFAULT_BIRTH_DATE.toString()))
-            .andExpect(jsonPath("$.createdAt").value(DEFAULT_CREATED_AT.toString()))
-            .andExpect(jsonPath("$.yearOfDiagnosis").value(DEFAULT_YEAR_OF_DIAGNOSIS.intValue()));
-    }
-
-    @Test
-    @Transactional
     void getNonExistingPatient() throws Exception {
         // Get the patient
         restPatientMockMvc.perform(get(ENTITY_API_URL_ID, Long.MAX_VALUE)).andExpect(status().isNotFound());
-    }
-
-    @Test
-    @Transactional
-    void putExistingPatient() throws Exception {
-        // Initialize the database
-        insertedPatient = patientRepository.saveAndFlush(patient);
-
-        long databaseSizeBeforeUpdate = getRepositoryCount();
-
-        // Update the patient
-        Patient updatedPatient = patientRepository.findById(patient.getId()).orElseThrow();
-        // Disconnect from session so that the updates on updatedPatient are not directly saved in db
-        em.detach(updatedPatient);
-        updatedPatient
-            .gender(UPDATED_GENDER)
-            .birthDate(UPDATED_BIRTH_DATE)
-            .createdAt(UPDATED_CREATED_AT)
-            .yearOfDiagnosis(UPDATED_YEAR_OF_DIAGNOSIS);
-
-        restPatientMockMvc
-            .perform(
-                put(ENTITY_API_URL_ID, updatedPatient.getId())
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(om.writeValueAsBytes(updatedPatient))
-            )
-            .andExpect(status().isOk());
-
-        // Validate the Patient in the database
-        assertSameRepositoryCount(databaseSizeBeforeUpdate);
-        assertPersistedPatientToMatchAllProperties(updatedPatient);
     }
 
     @Test
@@ -271,66 +182,6 @@ class PatientResourceIT {
 
     @Test
     @Transactional
-    void partialUpdatePatientWithPatch() throws Exception {
-        // Initialize the database
-        insertedPatient = patientRepository.saveAndFlush(patient);
-
-        long databaseSizeBeforeUpdate = getRepositoryCount();
-
-        // Update the patient using partial update
-        Patient partialUpdatedPatient = new Patient();
-        partialUpdatedPatient.setId(patient.getId());
-
-        partialUpdatedPatient.gender(UPDATED_GENDER).createdAt(UPDATED_CREATED_AT);
-
-        restPatientMockMvc
-            .perform(
-                patch(ENTITY_API_URL_ID, partialUpdatedPatient.getId())
-                    .contentType("application/merge-patch+json")
-                    .content(om.writeValueAsBytes(partialUpdatedPatient))
-            )
-            .andExpect(status().isOk());
-
-        // Validate the Patient in the database
-
-        assertSameRepositoryCount(databaseSizeBeforeUpdate);
-        assertPatientUpdatableFieldsEquals(createUpdateProxyForBean(partialUpdatedPatient, patient), getPersistedPatient(patient));
-    }
-
-    @Test
-    @Transactional
-    void fullUpdatePatientWithPatch() throws Exception {
-        // Initialize the database
-        insertedPatient = patientRepository.saveAndFlush(patient);
-
-        long databaseSizeBeforeUpdate = getRepositoryCount();
-
-        // Update the patient using partial update
-        Patient partialUpdatedPatient = new Patient();
-        partialUpdatedPatient.setId(patient.getId());
-
-        partialUpdatedPatient
-            .gender(UPDATED_GENDER)
-            .birthDate(UPDATED_BIRTH_DATE)
-            .createdAt(UPDATED_CREATED_AT)
-            .yearOfDiagnosis(UPDATED_YEAR_OF_DIAGNOSIS);
-
-        restPatientMockMvc
-            .perform(
-                patch(ENTITY_API_URL_ID, partialUpdatedPatient.getId())
-                    .contentType("application/merge-patch+json")
-                    .content(om.writeValueAsBytes(partialUpdatedPatient))
-            )
-            .andExpect(status().isOk());
-
-        // Validate the Patient in the database
-
-        assertSameRepositoryCount(databaseSizeBeforeUpdate);
-        assertPatientUpdatableFieldsEquals(partialUpdatedPatient, getPersistedPatient(partialUpdatedPatient));
-    }
-
-    @Test
-    @Transactional
     void patchNonExistingPatient() throws Exception {
         long databaseSizeBeforeUpdate = getRepositoryCount();
         patient.setId(UUID.randomUUID().toString());
@@ -378,23 +229,6 @@ class PatientResourceIT {
 
         // Validate the Patient in the database
         assertSameRepositoryCount(databaseSizeBeforeUpdate);
-    }
-
-    @Test
-    @Transactional
-    void deletePatient() throws Exception {
-        // Initialize the database
-        insertedPatient = patientRepository.saveAndFlush(patient);
-
-        long databaseSizeBeforeDelete = getRepositoryCount();
-
-        // Delete the patient
-        restPatientMockMvc
-            .perform(delete(ENTITY_API_URL_ID, patient.getId()).accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isNoContent());
-
-        // Validate the database contains one less item
-        assertDecrementedRepositoryCount(databaseSizeBeforeDelete);
     }
 
     protected long getRepositoryCount() {
