@@ -121,6 +121,11 @@ For further instructions on how to develop with JHipster, have a look at [Using 
 
 ## Building for production
 
+To deploy app to heroku run:
+`jhipster heroku`
+
+https://www.jhipster.tech/documentation-archive/v8.6.0/heroku/
+
 ### Packaging as jar
 
 To build the final jar and optimize the fit application for production, run:
