@@ -20,7 +20,7 @@ describe('Profile reducer tests', () => {
       const payload = {
         data: {
           'display-ribbon-on-profiles': 'awesome ribbon stuff',
-          activeProfiles: ['prod'],
+          activeProfiles: ['prod', 'api-docs'],
         },
       };
 
