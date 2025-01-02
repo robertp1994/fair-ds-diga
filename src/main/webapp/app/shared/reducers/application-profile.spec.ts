@@ -8,7 +8,7 @@ describe('Profile reducer tests', () => {
   const initialState = {
     ribbonEnv: '',
     inProduction: true,
-    isOpenAPIEnabled: false,
+    isOpenAPIEnabled: true,
   };
   describe('Common tests', () => {
     it('should return the initial state', () => {
@@ -27,7 +27,7 @@ describe('Profile reducer tests', () => {
       expect(profile(undefined, { type: getProfile.fulfilled.type, payload })).toEqual({
         ribbonEnv: 'awesome ribbon stuff',
         inProduction: true,
-        isOpenAPIEnabled: false,
+        isOpenAPIEnabled: true,
       });
     });
 
