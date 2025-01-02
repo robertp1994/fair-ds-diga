@@ -65,7 +65,7 @@ export const UserManagementDetail = () => {
         </dl>
       </Row>
       <Button tag={Link} to="/admin/user-management" replace color="info">
-        <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Wstecz</span>
+        <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
       </Button>
     </div>
   );

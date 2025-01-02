@@ -6,7 +6,7 @@ import { serializeAxiosError } from './reducer.utils';
 const initialState = {
   ribbonEnv: '',
   inProduction: true,
-  isOpenAPIEnabled: false,
+  isOpenAPIEnabled: true,
 };
 
 export type ApplicationProfileState = Readonly<typeof initialState>;
