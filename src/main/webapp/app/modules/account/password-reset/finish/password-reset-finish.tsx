@@ -36,9 +36,9 @@ export const PasswordResetFinishPage = () => {
           placeholder="New Password"
           type="password"
           validate={{
-            required: { value: true, message: 'Twoje hasło jest wymagane.' },
-            minLength: { value: 4, message: 'Twoje hasło powinno mieć minimum 4 znaki' },
-            maxLength: { value: 50, message: 'Twoje hasło nie może być dłuższe niż 50 znaków' },
+            required: { value: true, message: 'Your password is required.' },
+            minLength: { value: 4, message: 'Your password should have a minimum of 4 characters' },
+            maxLength: { value: 50, message: 'Your password must not be longer than 50 characters' },
           }}
           onChange={updatePassword}
           data-cy="resetPassword"
@@ -46,19 +46,19 @@ export const PasswordResetFinishPage = () => {
         <PasswordStrengthBar password={password} />
         <ValidatedField
           name="confirmPassword"
-          label="Potwierdź nowe hasło"
-          placeholder="Potwierdź nowe hasło"
+          label="Confirm new password"
+          placeholder="Confirm New Password"
           type="password"
           validate={{
-            required: { value: true, message: 'Potwierdzenie hasła jest wymagane.' },
-            minLength: { value: 4, message: 'Potwierdzenie hasła powinno mieć minimum 4 znaki' },
-            maxLength: { value: 50, message: 'Potwierdzenie hasła nie powinno być dłuższe niż 50 znaków' },
-            validate: v => v === password || 'Hasło i potwierdzenie nie zgadzają się!',
+            required: { value: true, message: 'Confirmation of the password is required.' },
+            minLength: { value: 4, message: 'Password confirmation should have a minimum of 4 characters' },
+            maxLength: { value: 50, message: 'Password confirmation should not be longer than 50 characters' },
+            validate: v => v === password || 'Password and confirmation do not match!',
           }}
           data-cy="confirmResetPassword"
         />
         <Button color="success" type="submit" data-cy="submit">
-          Sprawdź nowe hasło
+          Check new password
         </Button>
       </ValidatedForm>
     );
@@ -76,7 +76,7 @@ export const PasswordResetFinishPage = () => {
     <div>
       <Row className="justify-content-center">
         <Col md="4">
-          <h1>Reset hasła</h1>
+          <h1>Reset password</h1>
           <div>{key ? getResetForm() : null}</div>
         </Col>
       </Row>

@@ -1,7 +1,5 @@
 import React from 'react';
 import MenuItem from 'app/shared/layout/menus/menu-item';
-import { DropdownItem } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavDropdown } from './menu-components';
 
 const adminMenuItems = () => (
@@ -20,7 +18,16 @@ const openAPIItem = () => (
 );
 
 export const AdminMenu = ({ showOpenAPI }) => (
-  <NavDropdown icon="users-cog" name="Administration" id="admin-menu" data-cy="adminMenu">
+  <NavDropdown
+    icon="users-cog"
+    name={
+      <>
+        <span>&nbsp;</span>Admin
+      </>
+    }
+    id="admin-menu"
+    data-cy="adminMenu"
+  >
     {adminMenuItems()}
     {showOpenAPI && openAPIItem()}
   </NavDropdown>

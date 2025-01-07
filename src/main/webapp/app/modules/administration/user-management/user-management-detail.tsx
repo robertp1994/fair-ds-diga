@@ -23,28 +23,28 @@ export const UserManagementDetail = () => {
   return (
     <div>
       <h2>
-        Użytkownik [<strong>{user.login}</strong>]
+        User [<strong>{user.login}</strong>]
       </h2>
       <Row size="md">
         <dl className="jh-entity-details">
           <dt>Login</dt>
           <dd>
             <span>{user.login}</span>&nbsp;
-            {user.activated ? <Badge color="success">Aktywny</Badge> : <Badge color="danger">Nieaktywny</Badge>}
+            {user.activated ? <Badge color="success">Active</Badge> : <Badge color="danger">Inactive</Badge>}
           </dd>
-          <dt>Imię</dt>
+          <dt>Name</dt>
           <dd>{user.firstName}</dd>
-          <dt>Nazwisko</dt>
+          <dt>Last name</dt>
           <dd>{user.lastName}</dd>
           <dt>Email</dt>
           <dd>{user.email}</dd>
-          <dt>Utworzony przez</dt>
+          <dt>Created by</dt>
           <dd>{user.createdBy}</dd>
-          <dt>Data utworzenia</dt>
+          <dt>Date of creation</dt>
           <dd>{user.createdDate ? <TextFormat value={user.createdDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}</dd>
-          <dt>Zmodyfikowany przez</dt>
+          <dt>Modified by</dt>
           <dd>{user.lastModifiedBy}</dd>
-          <dt>Data modyfikacji</dt>
+          <dt>Date of modification</dt>
           <dd>
             {user.lastModifiedDate ? (
               <TextFormat value={user.lastModifiedDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid />

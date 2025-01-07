@@ -66,10 +66,10 @@ export const RegisterPage = () => {
               placeholder="Your email"
               type="email"
               validate={{
-                required: { value: true, message: 'Twój email jest wymagany.' },
-                minLength: { value: 5, message: 'Twój email musi mieć przynajmniej 5 znaków' },
-                maxLength: { value: 254, message: 'Twój email nie może być dłuższy niż 50 znaków' },
-                validate: v => isEmail(v) || 'Twój email jest błędny.',
+                required: { value: true, message: 'Your email is required.' },
+                minLength: { value: 5, message: 'Your email must have at least 5 characters' },
+                maxLength: { value: 254, message: 'Your email must not be longer than 50 characters' },
+                validate: v => isEmail(v) || 'Your email is incorrect.',
               }}
               data-cy="email"
             />

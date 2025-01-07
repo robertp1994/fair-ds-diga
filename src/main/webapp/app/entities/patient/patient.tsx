@@ -10,6 +10,7 @@ import { overrideSortStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities } from './patient.reducer';
+import Home from 'app/modules/home/home';
 
 export const Patient = () => {
   const dispatch = useAppDispatch();
@@ -82,7 +83,12 @@ export const Patient = () => {
         return '⚪';
     }
   };
-
+  // console.log(patientList);
+  // if (!patientList) {
+  //   <div>
+  //
+  //   </div>;
+  // } else
   return (
     <div>
       <h2 id="patient-heading" data-cy="PatientHeading">

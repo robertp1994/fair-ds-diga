@@ -31,16 +31,16 @@ export const UserManagementDeleteDialog = () => {
 
   return (
     <Modal isOpen toggle={handleClose}>
-      <ModalHeader toggle={handleClose}>Potwierdź usunięcie</ModalHeader>
-      <ModalBody>Czy na pewno chcesz usunąć użytkownika {user.login}?</ModalBody>
+      <ModalHeader toggle={handleClose}>Confirm deletion</ModalHeader>
+      <ModalBody>Are you sure you want to delete user {user.login}?</ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
-          &nbsp; Anuluj
+          &nbsp; Cancel
         </Button>
         <Button color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
-          &nbsp; Usuń
+          &nbsp; Delete
         </Button>
       </ModalFooter>
     </Modal>
