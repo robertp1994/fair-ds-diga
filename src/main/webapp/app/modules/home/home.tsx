@@ -34,12 +34,15 @@ export const Home = () => {
 
       <div className="embed-responsive embed-responsive-16by9">
         <iframe
-          width={1600}
-          height={900}
+          width="1600"
+          height="900"
           className="embed-responsive-item center-iframe"
-          src="https://www.youtube.com/embed/kcr1ColnTHM"
+          src="https://www.youtube.com/embed/kcr1ColnTHM?si=RgAOCXLNFZ2Bha4w"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
-          title="No Patients Found"
         ></iframe>
       </div>
       <span>&nbsp;</span>
